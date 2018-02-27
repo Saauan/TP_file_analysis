@@ -83,7 +83,8 @@ else:
         if len(sys.argv) >= 2: # Nom de fichier spécifié
             if len(sys.argv) >= 3: # Option + Nom de fichier
                 option = sys.argv[1]
-                assert option[0] == "-", "l'argument [OPTION] doit commencer par un '-'. Pour plus d'informations utiliser '-h'"
+                if not option[0] == "-":
+                    raise NameError("l'argument [OPTION] doit commencer par un '-'. Pour plus d'informations utiliser '-h'")
                 if len(sys.argv) >=4: # Option + Encodage + Nom de fichier
                     encodage = sys.argv[2]
                     fichier = sys.argv[3]
@@ -92,7 +93,8 @@ else:
 
             else: # Seulement un nom de fichier
                 fichier = sys.argv[1]
-            assert os.path.isfile(fichier), "fichier inexistant"
+            if not os.path.isfile(fichier):
+                raise FileNotFoundError("fichier inexistant")
             with open(fichier, 'r', encoding=encodage) as canal_texte:
                 l, m, c = analyse(canal_texte)
                 
@@ -120,7 +122,9 @@ else:
             print(l, c)
                 
             
-    except AssertionError as erreur:
+    except NameError as erreur:
+        print(erreur)
+    except FileNotFoundError as erreur:
         print(erreur)
     except LookupError:
         print("l'encodage utilisé est erroné !")
