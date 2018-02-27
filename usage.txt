@@ -1,0 +1,14 @@
+Usage : wc.py [OPTION] [<encodage>] [<nom fichier>]
+        <nom fichier> = nom du fichier (texte) à examiner. Si absent : stdin (input utilisateur)
+        <encodage> = encodage à utiliser pour lire le texte. Si absent : utf-8
+        OPTION =
+                -h   : cette aide
+                -lw  : nombre de lignes et de mots
+                -lwc : nombre de lignes, de mots et de caractères
+                -c   : nombre de caractères
+                -l   : nombre de lignes
+                -wc  : nombre de mots et de caractères
+                -w   : nombre de mots
+                -lc  : nombre de lignes et de caractères
+        Si aucune n'option n'est spécifiée, -lwc est utilisée
+        

@@ -1,0 +1,4 @@
+cigale.txt 24 lignes 114 mots et 639 octets
+vide.txt 0 ligne 0 mot 0 octet
+
+On en déduit que sys.argv contient les arguments marqué après python3, wc.py étant le premier argument
